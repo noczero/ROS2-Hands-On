@@ -7,6 +7,8 @@
   <maintainer email="noczero@todo.todo">noczero</maintainer>
   <license>MIT</license>
 
+  <depend>rclpy</depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
