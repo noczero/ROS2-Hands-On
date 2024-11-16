@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'number_generator_node = aptrg.number_generator_node:main',
-            'number_subscriber_node = aptrg.number_subscriber_node:main'
+            'number_subscriber_node = aptrg.number_subscriber_node:main',
+            'turtlesim_controller_node = aptrg.turtlesim_controller_node:main'
         ],
     },
 )
