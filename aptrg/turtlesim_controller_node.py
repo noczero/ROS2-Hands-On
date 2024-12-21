@@ -3,11 +3,18 @@ import math
 from rclpy.node import Node 
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
+import ast
 
 class TurtlesimControllerNode(Node):
     def __init__(self):
         super().__init__("turtlesim_controller_node")
         self.get_logger().info("TurtlesimControllerNode is running...")
+
+        self.declare_parameter('waypoints', '[(7.5, 5.5), (7.5, 7.5), (5.5, 7.5), (5.5, 5.5)]')
+
+        waypoints = ast.literal_eval(self.get_parameter('waypoints').value)
+
+        self.logger().info(f"Waypoints: {waypoints}")
 
         self.cmd_vel_publisher_ = self.create_publisher(
             Twist,
@@ -27,7 +34,7 @@ class TurtlesimControllerNode(Node):
 
         self.pose = None
 
-        self.target_points = [(7.5, 5.5), (7.5, 7.5), (5.5, 7.5), (5.5, 5.5)]
+        self.target_points = waypoints
 
         self.target_heading = [90, 180, 270, 0 ]
         
